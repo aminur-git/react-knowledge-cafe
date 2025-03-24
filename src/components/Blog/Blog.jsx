@@ -18,7 +18,7 @@ const Blog = ({ blog, handleBookMark }) => {
         <div>
             <div className="flex items-center gap-3">
             <span className="text-gray-500">{reading_time} Minute read.</span>
-            <button className="cursor-pointer" onClick={()=>handleBookMark()}><IoBookmarksOutline  className="text-gray-500 font-bold hover:text-xl"/></button> 
+            <button className="cursor-pointer" onClick={()=>handleBookMark(blog)}><IoBookmarksOutline  className="text-gray-500 font-bold hover:text-xl"/></button> 
             </div>
         </div>
       </div>
@@ -27,7 +27,8 @@ const Blog = ({ blog, handleBookMark }) => {
         {
           hashtags.map((hash, idx) => <span key={idx} className="ml-2 text-base text-[#11111199]"><a href="">{hash}</a></span> )
         }
-      </p>
+      </p>   
+      <button className=" text-blue-600 underline font-bold pt-4 cursor-pointer hover:text-blue-800">Mark As Read</button>
       <hr className="mt-4 border-1 border-gray-100"/>
     </div>
   );
@@ -35,6 +36,7 @@ const Blog = ({ blog, handleBookMark }) => {
 
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
+  handleBookMark: PropTypes.func
 };
 
 export default Blog;

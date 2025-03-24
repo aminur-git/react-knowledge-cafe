@@ -2,13 +2,14 @@ import { useState } from 'react'
 import Blogs from './components/Blogs/Blogs'
 import Bookmarks from './components/BookMarks/Bookmarks'
 import Header from './components/Header/Header'
+import SpentTime from './components/spent-time/SpentTime'
 
 function App() {
 
-const [bookmars, setBookmarks] = useState([]);
-
-const handleBookMark = blog => {
-   console.log('bookmark adding soon')
+const [bookmarks, setBookmarks] = useState([])
+const handleBookMark = (blog) => {
+  const newBookmarks = [...bookmarks, blog]
+  setBookmarks(newBookmarks)
 }
 
   return (
@@ -17,7 +18,10 @@ const handleBookMark = blog => {
     <div className='md:flex max-w-7xl mx-auto '>
       <main className='md:flex'>
         <Blogs handleBookMark={handleBookMark}></Blogs>
-        <Bookmarks></Bookmarks>
+        <div className='m-4 md:m-0 md:w-1/3 pt-8'>
+        <SpentTime></SpentTime>             
+        <Bookmarks bookmarks={bookmarks}></Bookmarks>
+        </div>
       </main>
     </div>
     </>

@@ -1,11 +1,12 @@
-import React from 'react';
+export default function ({bookmark}) {
+const {id, title} = bookmark
 
-const Bookmark = () => {
-    return (
-        <div>
-            <h2>BookMark here</h2>
-        </div>
-    );
-};
+return(
+    <div className="bg-white p-4 rounded-lg mb-4">
+        <h2>
+            {title}
+        </h2>
+    </div>
+)
 
-export default Bookmark;
+}
