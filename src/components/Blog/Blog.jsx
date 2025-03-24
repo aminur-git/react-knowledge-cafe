@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"; // ES6
 import { IoBookmarksOutline } from "react-icons/io5";
 
-const Blog = ({ blog, handleBookMark }) => {
+const Blog = ({ blog, handleBookMark, handleReadTime }) => {
   const { title, cover_picture, author, author_image, reading_time, posted_date, hashtags } = blog;
 
   return (
-    <div className="mb-14 rounded-md p-4">
+    <div className="mb-14 rounded-md p-4 shadow-sm ">
       <img className="w-full rounded-sm mb-8" src= {cover_picture} alt="" />     
       <div className="flex justify-between">
         <div className="flex">
@@ -28,7 +28,7 @@ const Blog = ({ blog, handleBookMark }) => {
           hashtags.map((hash, idx) => <span key={idx} className="ml-2 text-base text-[#11111199]"><a href="">{hash}</a></span> )
         }
       </p>   
-      <button className=" text-blue-600 underline font-bold pt-4 cursor-pointer hover:text-blue-800">Mark As Read</button>
+      <button onClick={()=> handleReadTime(reading_time)} className=" text-blue-600 underline font-bold pt-4 cursor-pointer hover:text-blue-800">Mark As Read</button>
       <hr className="mt-4 border-1 border-gray-100"/>
     </div>
   );

@@ -1,5 +1,8 @@
-export default function ({bookmark}) {
-const {id, title} = bookmark
+import Bookmarks from "../BookMarks/Bookmarks"
+
+ function Bookmark ({bookmark}) {
+const {title} = bookmark
+console.log(title)
 
 return(
     <div className="bg-white p-4 rounded-lg mb-4">
@@ -10,3 +13,5 @@ return(
 )
 
 }
+
+export default Bookmark ;
